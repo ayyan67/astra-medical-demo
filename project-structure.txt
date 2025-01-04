@@ -1,0 +1,77 @@
+├── astra-medical-demo
+│   ├── .env.local
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── cleaned-structure.txt
+│   ├── detailed-project-structure.txt
+│   ├── next-env.d.ts
+│   ├── next.config.js
+│   ├── next.config.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── postcss.config.mjs
+│   ├── project-structure-clean.txt
+│   ├── project-structure.txt
+│   ├── README.md
+│   ├── tailwind.config.js
+│   ├── tailwind.config.ts
+│   ├── tsconfig.json
+│   ├── public
+│   │   ├── file.svg
+│   │   ├── globe.svg
+│   │   ├── next.svg
+│   │   ├── vercel.svg
+│   │   ├── window.svg
+│   ├── src
+│   │   ├── middleware.ts
+│   │   ├── app
+│   │   │   ├── favicon.ico
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── api
+│   │   │   │   ├── auth
+│   │   │   ├── claims
+│   │   │   │   ├── history
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   ├── submit
+│   │   │   │   │   ├── page.tsx
+│   │   │   ├── dashboard
+│   │   │   │   ├── page.tsx
+│   │   │   ├── fonts
+│   │   │   │   ├── GeistMonoVF.woff
+│   │   │   │   ├── GeistVF.woff
+│   │   │   ├── login
+│   │   │   │   ├── page.tsx
+│   │   │   ├── settings
+│   │   │   │   ├── page.tsx
+│   │   ├── components
+│   │   │   ├── claims
+│   │   │   │   ├── ClaimFormOLD.tsx
+│   │   │   │   ├── ClaimsForm.tsx
+│   │   │   │   ├── ClaimsTable.tsx
+│   │   │   ├── dashboard
+│   │   │   │   ├── ClaimsOverview.tsx
+│   │   │   │   ├── ReimbursementChart.tsx
+│   │   │   ├── layout
+│   │   │   │   ├── DashboardLayout.tsx
+│   │   │   │   ├── Navigation.tsx
+│   │   │   ├── providers
+│   │   │   │   ├── AuthProvider.tsx
+│   │   │   ├── ui
+│   │   │   │   ├── alert.tsx
+│   │   │   │   ├── button.tsx
+│   │   │   │   ├── card.tsx
+│   │   │   │   ├── input.tsx
+│   │   ├── lib
+│   │   │   ├── auth.ts
+│   │   │   ├── mockData.ts
+│   │   │   ├── predictionUtils.ts
+│   │   │   ├── utils.ts
+│   │   ├── store
+│   │   │   ├── claimStore.ts
+│   │   ├── styles
+│   │   │   ├── globals.css
+│   │   ├── types
+│   │   │   ├── predictions.ts

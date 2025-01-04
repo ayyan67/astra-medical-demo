@@ -1,0 +1,37 @@
+# Generate the tree structure
+function Write-Tree {
+    param (
+        [string]$Path = ".",   # Root path (current directory by default)
+        [string]$Indent = "", # Indentation for subdirectories
+        [int]$Depth = 5       # Maximum depth of the tree
+    )
+
+    # Stop recursion if depth is exceeded
+    if ($Depth -le 0) {
+        return
+    }
+
+    # Write the current directory name
+    Write-Output "$Indent├── $(Split-Path $Path -Leaf)"
+
+    # Get directories and files
+    $items = Get-ChildItem -Path $Path | Where-Object { $_.Name -notin "node_modules", ".next", ".git", "dist", "build" }
+
+    # Separate directories and files
+    $directories = $items | Where-Object { $_.PSIsContainer }
+    $files = $items | Where-Object { -not $_.PSIsContainer }
+
+    # Write files
+    foreach ($file in $files) {
+        Write-Output "$Indent│   ├── $($file.Name)"
+    }
+
+    # Write directories and recurse
+    foreach ($dir in $directories) {
+        Write-Tree -Path $dir.FullName -Indent "$Indent│   " -Depth ($Depth - 1)
+    }
+}
+
+# Write the tree to a file
+Write-Tree | Out-File project-structure.txt -Encoding utf8
+
