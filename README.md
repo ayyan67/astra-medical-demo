@@ -23,46 +23,6 @@ This is a technology demonstration only. No real medical data is processed. The 
 - NextAuth.js
 - Zustand
 
-## 🚀 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/astra-medical-demo.git
-
-# Install dependencies
-npm install
-
-# Create .env.local file with required environment variables
-cp .env.example .env.local
-
-# Run the development server
-npm run dev
-```
-
-## 📝 Environment Variables
-
-Create a `.env.local` file with the following:
-
-```
-NEXT_PUBLIC_APP_MODE=demo
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-secret-here
-DEMO_USER_EMAIL=demo@astramedical.com
-DEMO_USER_PASSWORD=demopass123
-```
-
-## 👩‍💻 Demo Access
-
-Use these credentials to explore the demo:
-- Email: demo@astramedical.com
-- Password: demopass123
-
-## 📚 Documentation
-
-The AI prediction system design is based on research in automated medical coding. For more details, see the included documentation in the `/docs` directory.
-
-## 🤝 Contributing
 
 This is a demonstration project. While we welcome feedback and suggestions, we're not actively seeking contributions at this time.
 
