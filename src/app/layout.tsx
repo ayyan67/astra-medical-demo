@@ -1,28 +1,8 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import AuthProvider from "@/components/providers/AuthProvider";
-import { DemoBanner } from '@/components/layout/DemoBanner';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Providers } from "@/components/providers";
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-  display: 'swap',
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-  display: 'swap',
-});
-
-export const metadata: Metadata = {
-  title: "Astra Medical",
-  description: "Streamline your medical billing with AI-powered automation",
-};
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -31,9 +11,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {process.env.NEXT_PUBLIC_APP_MODE === 'demo' && <DemoBanner />}
-        {children}
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -55,7 +55,7 @@ export default function SettingsPage() {
                 </div>
                 <div className="flex justify-end space-x-4">
                   <Button variant="outline">Cancel</Button>
-                  <Button type="submit">Save Changes</Button>
+                  <Button variant="outline" type="submit">Save Changes</Button>
                 </div>
               </form>
             </CardContent>
@@ -91,7 +91,7 @@ export default function SettingsPage() {
                 </div>
                 <div className="flex justify-end space-x-4">
                   <Button variant="outline">Cancel</Button>
-                  <Button type="submit">Save Changes</Button>
+                  <Button variant="outline" type="submit">Save Changes</Button>
                 </div>
               </form>
             </CardContent>

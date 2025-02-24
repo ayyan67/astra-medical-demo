@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, FileText, History, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, FileText, History, Settings, LogOut, Shield } from "lucide-react";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -15,6 +15,7 @@ const Navigation = () => {
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/claims/submit", label: "Submit a Claim", icon: FileText },
     { href: "/claims/history", label: "View History", icon: History },
+    { href: "/deidentify", label: "De-identify Data", icon: Shield },  // Updated path
     { href: "/settings", label: "Settings", icon: Settings },
   ];
 

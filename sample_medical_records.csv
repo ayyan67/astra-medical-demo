@@ -1,0 +1,11 @@
+Patient ID,Visit Date,Patient Name,DOB,Phone Number,Email,Address,Diagnosis,Treatment,Provider Name,Insurance ID
+MRN123456,2024-02-15,John A. Smith,1975-05-12,555-123-4567,john.smith@email.com,123 Main St Springfield MA 01101,Type 2 Diabetes,Metformin 500mg BID,Dr. Sarah Johnson,INS-987654
+MRN123457,2024-02-16,Mary Wilson,1982-08-23,555-234-5678,mary.w@email.com,456 Oak Ave Boston MA 02108,Hypertension,Lisinopril 10mg Daily,Dr. Michael Brown,INS-987655
+MRN123458,2024-02-16,Robert Lee,1968-11-30,555-345-6789,robert.lee@email.com,789 Pine St Cambridge MA 02139,Asthma,Albuterol Inhaler PRN,Dr. Sarah Johnson,INS-987656
+MRN123459,2024-02-17,Sarah Davis,1990-03-15,555-456-7890,sarah.d@email.com,321 Elm St Newton MA 02458,Migraine,Sumatriptan 50mg PRN,Dr. David Chen,INS-987657
+MRN123460,2024-02-17,James Martinez,1955-07-20,555-567-8901,james.m@email.com,654 Maple Dr Brookline MA 02445,Arthritis,Ibuprofen 800mg TID,Dr. Michael Brown,INS-987658
+MRN123461,2024-02-18,Emily Johnson,1988-12-05,555-678-9012,emily.j@email.com,987 Cedar Ln Somerville MA 02143,Anxiety,Sertraline 50mg Daily,Dr. David Chen,INS-987659
+MRN123462,2024-02-18,William Thompson,1972-04-25,555-789-0123,william.t@email.com,147 Birch St Medford MA 02155,GERD,Omeprazole 20mg Daily,Dr. Sarah Johnson,INS-987660
+MRN123463,2024-02-19,Patricia Brown,1965-09-10,555-890-1234,patricia.b@email.com,258 Walnut Ave Arlington MA 02474,Depression,Fluoxetine 20mg Daily,Dr. Michael Brown,INS-987661
+MRN123464,2024-02-19,Michael Garcia,1995-01-28,555-901-2345,michael.g@email.com,369 Pearl St Watertown MA 02472,Insomnia,Zolpidem 5mg QHS,Dr. David Chen,INS-987662
+MRN123465,2024-02-20,Jennifer Taylor,1980-06-17,555-012-3456,jennifer.t@email.com,741 Ruby Rd Belmont MA 02478,Hypothyroidism,Levothyroxine 75mcg Daily,Dr. Sarah Johnson,INS-987663

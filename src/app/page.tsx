@@ -12,7 +12,9 @@ export default function LandingPage() {
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-white font-bold text-xl">ASTRA MEDICAL</div>
           <div className="space-x-4">
-            <button className="text-white hover:text-blue-200">Learn More</button>
+            <Link href="/contact">
+              <button className="text-white hover:text-blue-200">Contact</button>
+            </Link>
             <Link href="/login">
               <button className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50">
                 Log In
@@ -166,7 +168,7 @@ export default function LandingPage() {
                 <li>About</li>
                 <li>Team</li>
                 <li>Careers</li>
-                <li>Contact</li>
+                <li><Link href="/contact" className="hover:text-blue-300">Contact</Link></li>
               </ul>
             </div>
             <div>
