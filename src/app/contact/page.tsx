@@ -62,13 +62,13 @@ export default function ContactPage() {
           <CardHeader className="text-center">
             <CardTitle className="text-3xl text-blue-600">Contact Us</CardTitle>
             <CardDescription className="mt-2">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </CardDescription>
           </CardHeader>
           <CardContent>
             {status === 'success' ? (
               <div className="bg-green-50 text-green-600 p-4 rounded-md mb-6">
-                Your message has been sent successfully! We'll get back to you soon.
+                Your message has been sent successfully! We&apos;ll get back to you soon.
               </div>
             ) : status === 'error' ? (
               <div className="bg-red-50 text-red-600 p-4 rounded-md mb-6">
