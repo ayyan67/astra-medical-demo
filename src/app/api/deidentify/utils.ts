@@ -35,8 +35,8 @@ function processWorkbook(workbook: XLSX.WorkBook): XLSX.WorkBook {
     const sheet = workbook.Sheets[sheetName];
     const jsonData = XLSX.utils.sheet_to_json(sheet);
     
-    // Fix type issue by using type assertion
-    const deidentifiedData = jsonData.map((row: Record<string, any>) => 
+    // Fix type issue by properly casting the array type
+    const deidentifiedData = (jsonData as any[]).map((row) => 
       Object.fromEntries(
         Object.entries(row).map(([key, value]) => [
           key,
