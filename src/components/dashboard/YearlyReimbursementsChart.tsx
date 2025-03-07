@@ -50,6 +50,7 @@ const CustomTooltip = ({
 
   return null;
 };
+CustomTooltip.displayName = 'CustomTooltip';
 
 interface CustomDotProps {
   cx: number;
@@ -75,6 +76,7 @@ const CustomDot = ({ cx, cy, index, dataLength }: CustomDotProps) => {
     </svg>
   );
 };
+CustomDot.displayName = 'CustomDot';
 
 const CustomizedAxisTick = ({
   x,
@@ -100,6 +102,7 @@ const CustomizedAxisTick = ({
     </g>
   );
 };
+CustomizedAxisTick.displayName = 'CustomizedAxisTick';
 
 const CustomYAxisTick = ({
   x,
@@ -125,14 +128,19 @@ const CustomYAxisTick = ({
     </g>
   );
 };
+CustomYAxisTick.displayName = 'CustomYAxisTick';
 
-export default function YearlyReimbursementsChart({ 
+function YearlyReimbursementsChart({ 
   data = defaultData,
   className = ''
 }: YearlyReimbursementsChartProps) {
   // useMemo to prevent re-rendering performance issues with Recharts
-  const renderCustomizedDot = useMemo(() => (props: any) => {
-    return <CustomDot {...props} dataLength={data.length} />;
+  const renderCustomizedDot = useMemo(() => {
+    const CustomDotRenderer = (props: any) => {
+      return <CustomDot {...props} dataLength={data.length} />;
+    };
+    CustomDotRenderer.displayName = 'CustomDotRenderer';
+    return CustomDotRenderer;
   }, [data.length]);
 
   return (
@@ -185,3 +193,6 @@ export default function YearlyReimbursementsChart({
     </div>
   );
 }
+
+YearlyReimbursementsChart.displayName = 'YearlyReimbursementsChart';
+export default YearlyReimbursementsChart;
