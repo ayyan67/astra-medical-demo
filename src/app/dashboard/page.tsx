@@ -18,7 +18,17 @@ import {
 import Link from 'next/link';
 
 // Custom components for our dashboard
-const StatsCard = ({ title, value, icon: Icon, trend, trendUp, bgColor, loading = false }) => (
+interface StatsCardProps {
+  title: string;
+  value: string;
+  icon: React.ElementType;
+  trend?: string;
+  trendUp?: boolean;
+  bgColor?: string;
+  loading?: boolean;
+}
+
+const StatsCard = ({ title, value, icon: Icon, trend, trendUp, bgColor, loading = false }: StatsCardProps) => (
   <Card className="overflow-hidden hover:border-purple-500/70 transition-colors duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.1)]">
     <CardContent className="p-6">
       <div className="flex items-start justify-between">
@@ -44,7 +54,14 @@ const StatsCard = ({ title, value, icon: Icon, trend, trendUp, bgColor, loading 
   </Card>
 );
 
-const AlertCard = ({ type, message, actionLabel = "View", actionHref = "#" }) => {
+interface AlertCardProps {
+  type: 'info' | 'warning' | 'success';
+  message: string;
+  actionLabel?: string;
+  actionHref?: string;
+}
+
+const AlertCard = ({ type, message, actionLabel = "View", actionHref = "#" }: AlertCardProps) => {
   const icons = {
     info: Info,
     warning: AlertCircle,
