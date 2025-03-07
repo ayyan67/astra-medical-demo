@@ -449,7 +449,7 @@ const ClaimForm = () => {
                       : 'bg-purple-600 text-white hover:bg-purple-700'
                   }`}
                 >
-                  Submit Claim with {selectedCodes.length} Selected {selectedCodes.length === 1 ? 'Code' : 'Codes'}
+                  Submit Claim with {selectedCodes.length} Selected {selectedCodes.length === 1 ? &#39;Code&#39; : &#39;Codes&#39;}
                 </button>
               </div>
             </div>

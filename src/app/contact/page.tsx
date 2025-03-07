@@ -53,8 +53,8 @@ export default function ContactPage() {
       <header className="container mx-auto px-4 lg:px-6 py-12">
         <h1 className="text-4xl font-bold text-center mb-4">Contact Us</h1>
         <p className="text-gray-300 text-center max-w-2xl mx-auto">
-          Have questions about Astra Medical or need assistance? We're here to help. 
-          Reach out to our team and we'll get back to you as soon as possible.
+          Have questions about Astra Medical or need assistance? We&#39;re here to help. 
+          Reach out to our team and we&#39;ll get back to you as soon as possible.
         </p>
       </header>
 
@@ -85,7 +85,7 @@ export default function ContactPage() {
               <div className="bg-gradient-to-r from-purple-900/20 to-purple-700/10 rounded-lg p-5">
                 <h3 className="text-xl font-medium text-white mb-3">Interested in Astra Medical?</h3>
                 <p className="text-gray-300 mb-4">
-                  Learn how our AI-powered platform can help increase your practice's revenue by 30% while reducing administrative burden.
+                  Learn how our AI-powered platform can help increase your practice&#39;s revenue by 30% while reducing administrative burden.
                 </p>
                 <Link href="/">
                   <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-md px-5 py-2 font-medium flex items-center transition-colors">

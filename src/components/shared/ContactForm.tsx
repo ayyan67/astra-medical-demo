@@ -60,7 +60,7 @@ export default function ContactForm({ className }: ContactFormProps) {
           <div>
             <h3 className="font-medium text-green-400">Message Sent Successfully</h3>
             <p className="text-sm text-gray-300 mt-1">
-              Thank you for contacting us. We'll get back to you as soon as possible.
+              Thank you for contacting us. We&#39;ll get back to you as soon as possible.
             </p>
           </div>
         </div>
