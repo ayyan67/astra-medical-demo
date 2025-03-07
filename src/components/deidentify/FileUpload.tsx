@@ -1,106 +1,147 @@
-'use client'
+'use client';
 
-import { useCallback, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
-import { Upload, X, FileIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { useState } from 'react';
+import { Upload, File, X } from 'lucide-react';
 
 interface FileUploadProps {
-  onUpload: (file: File) => void
-  disabled?: boolean
+  onUpload: (file: File) => void;
+  disabled?: boolean;
 }
 
-export function FileUpload({ onUpload, disabled }: FileUploadProps) {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+export function FileUpload({ onUpload, disabled = false }: FileUploadProps) {
+  const [file, setFile] = useState<File | null>(null);
+  const [dragActive, setDragActive] = useState(false);
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0]
+  const handleDrag = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true);
+    } else if (e.type === 'dragleave') {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      setFile(e.dataTransfer.files[0]);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = () => {
     if (file) {
-      setSelectedFile(file)
+      onUpload(file);
     }
-  }, [])
+  };
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: {
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-      'text/csv': ['.csv'],
-      'application/xml': ['.xml', '.ccd'],
-    },
-    maxFiles: 1,
-    disabled,
-  })
-
-  const handleUpload = () => {
-    if (selectedFile) {
-      onUpload(selectedFile)
-    }
-  }
-
-  const clearSelection = () => {
-    setSelectedFile(null)
-  }
+  const clearFile = () => {
+    setFile(null);
+  };
 
   return (
     <div className="space-y-4">
       <div
-        {...getRootProps()}
-        className={`
-          border-2 border-dashed rounded-lg p-8 text-center cursor-pointer
-          transition-colors duration-200 ease-in-out
-          ${isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-400 hover:bg-gray-50'}
-          ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
-        `}
+        className={`border-2 border-dashed rounded-lg p-6 transition-colors text-center ${
+          dragActive 
+            ? 'border-purple-500 bg-purple-900/20' 
+            : 'border-purple-900/30 hover:border-purple-500/50 bg-[#0A0A20]'
+        } ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+        onDrop={handleDrop}
       >
-        <input {...getInputProps()} />
-        <div className="flex flex-col items-center gap-3">
-          <div className="p-3 rounded-full bg-blue-50">
-            <Upload className="h-6 w-6 text-blue-500" />
+        <div className="flex flex-col items-center justify-center space-y-3">
+          <div className="p-3 rounded-full bg-purple-900/30">
+            <Upload className="h-6 w-6 text-purple-400" />
           </div>
-          {isDragActive ? (
-            <p className="text-lg font-medium text-blue-600">Drop your file here</p>
-          ) : (
-            <>
-              <p className="text-lg font-medium text-gray-900">
-                Drag & drop your file here
-              </p>
-              <p className="text-sm text-gray-500">
-                or click to browse
-              </p>
-            </>
+          <div className="text-center">
+            <p className="text-sm font-medium text-white">
+              {file ? file.name : 'Drag and drop your file here'}
+            </p>
+            <p className="mt-1 text-xs text-gray-400">
+              Supports PDF, DOCX, TXT, CSV, and JSON formats up to 10MB
+            </p>
+          </div>
+          {!file && (
+            <button
+              disabled={disabled}
+              type="button"
+              className={`mt-2 px-4 py-2 text-sm rounded-md transition-colors ${
+                disabled 
+                  ? 'bg-gray-700 text-gray-300' 
+                  : 'bg-purple-600 text-white hover:bg-purple-700'
+              }`}
+              onClick={() => document.getElementById('file-upload')?.click()}
+            >
+              Select File
+            </button>
           )}
-          <p className="text-xs text-gray-400">
-            Supports Excel (.xlsx), CSV, and CCD/XML files
-          </p>
+          <input
+            id="file-upload"
+            type="file"
+            className="hidden"
+            onChange={handleChange}
+            disabled={disabled}
+            accept=".pdf,.docx,.txt,.csv,.json"
+          />
         </div>
       </div>
 
-      {selectedFile && (
-        <Alert className="bg-blue-50 border-blue-100">
-          <FileIcon className="h-4 w-4 text-blue-500" />
-          <AlertDescription className="flex items-center justify-between">
-            <span className="font-medium text-blue-900">{selectedFile.name}</span>
-            <div className="flex gap-2">
-              <Button 
-                onClick={handleUpload} 
-                disabled={disabled}
-                className="bg-blue-500 hover:bg-blue-600 text-white"
-              >
-                Process File
-              </Button>
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={clearSelection}
-                className="border-gray-200 hover:bg-gray-50"
-              >
-                <X className="h-4 w-4" />
-              </Button>
+      {file && (
+        <div className="bg-[#0F0F30] p-4 rounded-md border border-purple-900/30">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="p-2 rounded-md bg-purple-900/30">
+                <File className="h-5 w-5 text-purple-400" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">{file.name}</p>
+                <p className="text-xs text-gray-400">
+                  {(file.size / 1024 / 1024).toFixed(2)} MB
+                </p>
+              </div>
             </div>
-          </AlertDescription>
-        </Alert>
+            <div className="flex items-center space-x-2">
+              <button
+                type="button"
+                className="p-1 rounded-full text-gray-400 hover:text-white hover:bg-purple-900/20"
+                onClick={clearFile}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-4 flex justify-end space-x-3">
+            <button
+              type="button"
+              className="px-3 py-1.5 text-sm bg-gray-800 text-gray-300 rounded-md hover:bg-gray-700"
+              onClick={clearFile}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="px-3 py-1.5 text-sm bg-purple-600 text-white rounded-md hover:bg-purple-700 flex items-center"
+              onClick={handleSubmit}
+              disabled={disabled}
+            >
+              <Upload className="mr-1.5 h-4 w-4" />
+              Process File
+            </button>
+          </div>
+        </div>
       )}
     </div>
-  )
+  );
 }

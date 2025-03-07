@@ -1,9 +1,0 @@
-├── astra-medical-demo
-│   ├── next-env.d.ts
-│   ├── next.config.ts
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── README.md
-│   ├── tailwind.config.js
-│   ├── tailwind.config.ts
-    ├── tsconfig.json

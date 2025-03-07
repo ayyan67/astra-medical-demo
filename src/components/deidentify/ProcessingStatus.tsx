@@ -1,27 +1,34 @@
-'use client'
+'use client';
 
-import { Loader2 } from 'lucide-react'
-import { Progress } from '@/components/ui/progress'
+import { Progress } from '@/components/ui/progress';
 
 interface ProcessingStatusProps {
-  status: 'uploading' | 'processing'
+  status: 'uploading' | 'processing';
 }
 
 export function ProcessingStatus({ status }: ProcessingStatusProps) {
   return (
-    <div className="space-y-2">
-      <div className="flex items-center gap-2">
-        <Loader2 className="h-4 w-4 animate-spin" />
-        <span className="font-medium">
-          {status === 'uploading' ? 'Uploading file...' : 'De-identifying data...'}
-        </span>
+    <div className="rounded-md border border-purple-900/30 p-4 bg-[#0F0F30]">
+      <div className="flex flex-col">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-medium text-white">
+            {status === 'uploading' ? 'Uploading...' : 'Processing...'}
+          </span>
+          <span className="text-xs text-gray-400">
+            {status === 'uploading' ? '50%' : '75%'}
+          </span>
+        </div>
+        <Progress
+          value={status === 'uploading' ? 50 : 75}
+          className="h-1.5 bg-purple-900/30"
+          indicatorClassName="bg-purple-600"
+        />
+        <p className="mt-2 text-xs text-gray-400">
+          {status === 'uploading'
+            ? 'Uploading your file to our secure server...'
+            : 'Analyzing and removing personal health information...'}
+        </p>
       </div>
-      <Progress value={status === 'uploading' ? 33 : 66} className="h-2" />
-      <p className="text-sm text-gray-500">
-        {status === 'uploading'
-          ? 'Your file is being uploaded securely...'
-          : 'Removing personal health information...'}
-      </p>
     </div>
-  )
+  );
 }

@@ -1,16 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
+  // Only ignore TypeScript errors in development for faster iterations
   typescript: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has TypeScript errors.
-    ignoreBuildErrors: true,
+    // Don't ignore in production, but can be enabled in development
+    ignoreBuildErrors: process.env.NODE_ENV === 'development',
   },
+  // Only ignore ESLint errors in development for faster iterations
+  eslint: {
+    ignoreDuringBuilds: process.env.NODE_ENV === 'development',
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': './src',
+    }
+    return config
+  }
 };
 
 module.exports = nextConfig;
