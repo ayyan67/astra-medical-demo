@@ -555,74 +555,7 @@ export default function LandingPage() {
         </section>
       </AnimatedSection>
 
-      {/* Social Proof Section - NEW */}
-      <AnimatedSection>
-        <section className="py-16 bg-gradient-to-b from-[#0A0A20] to-[#050510]" aria-labelledby="testimonials">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-purple-500 text-lg font-medium pb-3 text-center">
-              TRUSTED BY MEDICAL PROFESSIONALS
-            </div>
-            <h2 id="testimonials" className="text-3xl font-bold text-white mb-12 text-center">
-              What Our Clients Say
-            </h2>
-            
-            <div className="grid md:grid-cols-3 gap-6 max-w-full overflow-x-hidden">
-              {[
-                {
-                  quote: "Our monthly revenue increased by $42,500 in our first quarter. By delegating coding to AI, I spend 8 more hours weekly with patients instead of paperwork.",
-                  author: "Dr. Sarah Chen",
-                  role: "Internal Medicine, Bay Area Medical",
-                  stars: 5
-                },
-                {
-                  quote: "We were losing $87,000 yearly to denied claims. With Astra, our acceptance rate jumped from 72% to 94% within three months. Billing is now a 10-minute task.",
-                  author: "Dr. Michael Rodriguez",
-                  role: "Family Practice, Westside Health",
-                  stars: 5
-                },
-                {
-                  quote: "After evaluating 5 different solutions, Astra was the only one that integrated seamlessly with our EHR. They had us operational in 48 hours with immediate ROI.",
-                  author: "Lisa Johnson",
-                  role: "Practice Manager, NorthEast Medical",
-                  stars: 5
-                }
-              ].map((testimonial, index) => (
-                <div key={index} className="bg-[#0A0A20] p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-full overflow-hidden">
-                  <div className="flex mb-3">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={16} 
-                        className={`${i < testimonial.stars ? 'text-purple-500' : 'text-gray-700'} mr-1`} 
-                        fill={i < testimonial.stars ? '#8b5cf6' : 'none'} 
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-300 italic mb-4 flex-grow">"{testimonial.quote}"</p>
-                  <div>
-                    <p className="font-semibold text-white">{testimonial.author}</p>
-                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-12 pt-8 border-t border-purple-900/30">
-              <h3 className="text-xl font-semibold text-white mb-6 text-center">
-                Trusted by Leading Medical Organizations
-              </h3>
-              <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
-                {['Bay Area Medical Network', 'California Health Consortium', 'Western Medical Alliance', 'National Physician Group', 'HealthTech Partners'].map((partner, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <Building2 className="w-5 h-5 text-purple-400" aria-hidden="true" />
-                    <span className="text-gray-300">{partner}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </AnimatedSection>
+    
 
       {/* Statistics Section - Improved for better readability */}
       <AnimatedSection>
