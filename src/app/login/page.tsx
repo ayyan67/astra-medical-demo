@@ -104,10 +104,9 @@ export default function LoginPage() {
       <nav className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
         <Link href="/" className="flex items-center group" aria-label="Astra Medical Home">
           <div className="mr-3 relative">
-            <Image src="/astra-logo.png" alt="" width={32} height={32} />
+            <Image src="/astra-logo.png" alt="" width={100} height={100} />
             <div className="absolute inset-0 bg-purple-500/20 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300" aria-hidden="true"></div>
           </div>
-          <span className="text-white font-bold text-xl tracking-tight group-hover:text-purple-200 transition-colors duration-300">ASTRA MEDICAL</span>
         </Link>
         <div className="flex items-center space-x-4">
           <Link href="/contact" className="text-white hover:text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#050510] rounded-md px-2 py-1">

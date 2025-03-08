@@ -18,23 +18,23 @@ interface ContactInfoProps {
 const defaultContactInfo: ContactInfoItem[] = [
   {
     type: 'email',
-    value: 'support@astramedical.com',
-    href: 'mailto:support@astramedical.com',
+    value: 'ayyan@astramedical.co',
+    href: 'mailto:ayyan@astramedical.co',
   },
   {
     type: 'phone',
-    value: '+1 (800) 555-1234',
-    href: 'tel:+18005551234',
+    value: '+1 (908) 315-2084',
+    href: 'tel:+19083152084',
   },
   {
     type: 'address',
-    value: '123 Medical Plaza',
-    secondLine: 'San Francisco, CA 94107',
+    value: '2680 N Santiago Blvd Suite 200',
+    secondLine: 'Orange, CA 92867',
   },
   {
     type: 'website',
-    value: 'astramedical.com',
-    href: 'https://astramedical.com',
+    value: 'astramedical.co',
+    href: 'https://astramedical.co',
   },
 ];
 

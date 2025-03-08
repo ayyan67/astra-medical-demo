@@ -125,11 +125,10 @@ export default function LandingPage() {
       <nav className="container mx-auto px-4 lg:px-6 py-4 flex flex-wrap justify-between items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center group" aria-label="Astra Medical Home">
-            <div className="mr-3 relative">
-              <Image src="/astra-logo.png" alt="" width={32} height={32} />
+            <div className="relative">
+              <Image src="/astra-logo.png" alt="" width={100} height={100} />
               <div className="absolute inset-0 bg-purple-500/20 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300" aria-hidden="true"></div>
             </div>
-            <span className="text-white font-bold text-xl tracking-tight group-hover:text-purple-200 transition-colors duration-300">ASTRA MEDICAL</span>
           </Link>
         </div>
         <div className="flex items-center space-x-4 lg:space-x-6">
@@ -179,33 +178,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Announcement Bar - Improved contrast and accessibility */}
-      <div className="bg-[#0A0A20] border-y border-purple-900/30 mb-16">
-        <div className="container mx-auto px-4 lg:px-6 py-3 flex flex-row justify-between items-center">
-          <div className="flex items-center flex-wrap">
-            <span className="font-semibold mr-2 text-purple-300">New:</span>
-            <span className="text-gray-200">Astra Medical now integrates with 95% of EHR systems.</span>
-            <Link 
-              href="#" 
-              className="ml-2 text-purple-400 hover:text-purple-300 focus:outline-none focus:underline group"
-              aria-label="Learn more about EHR integration"
-            >
-              Learn more
-              <ChevronRight size={14} className="inline ml-1 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-            </Link>
-          </div>
-          <Link 
-            href="#" 
-            className="hidden md:flex focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-[#0A0A20] rounded-md"
-            aria-label="View details about EHR integration"
-          >
-            <button className="bg-transparent border border-purple-600 text-white px-3 py-1 rounded-md flex items-center hover:bg-purple-900/20 hover:border-purple-400 transition duration-300">
-              <span className="text-xs font-medium">View Details</span>
-              <ChevronRight size={16} className="ml-1" aria-hidden="true" />
-            </button>
-          </Link>
-        </div>
-      </div>
+
 
       {/* Problem Statement Section - Improved card layout and contrast */}
       <AnimatedSection>
@@ -250,62 +223,67 @@ export default function LandingPage() {
         </section>
       </AnimatedSection>
 
-      {/* How it Works Section - NEW */}
-      <AnimatedSection>
-        <section className="py-16 bg-[#080818]" aria-labelledby="how-it-works">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-purple-500 text-lg font-medium pb-3">
-              HOW IT WORKS
-            </div>
-            <div className="max-w-3xl mb-12">
-              <h2 id="how-it-works" className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Simple Process, Powerful Results
-              </h2>
-              <p className="text-gray-300">Our streamlined workflow integrates seamlessly with your practice</p>
-            </div>
+     {/* How it Works Section - FIXED */}
+<AnimatedSection>
+  <section className="py-16 bg-[#080818]" aria-labelledby="how-it-works">
+    <div className="container mx-auto px-4 lg:px-6">
+      <div className="text-purple-500 text-lg font-medium pb-3">
+        HOW IT WORKS
+      </div>
+      <div className="max-w-3xl mb-12">
+        <h2 id="how-it-works" className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Simple Process, Powerful Results
+        </h2>
+        <p className="text-gray-300">Our streamlined workflow integrates seamlessly with your practice</p>
+      </div>
 
-            <div className="relative">
-              {/* Connection line for desktop view only */}
-              <div className="hidden md:block absolute left-1/2 top-24 w-full h-1 bg-gradient-to-r from-purple-600/80 to-purple-800/30" aria-hidden="true"></div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative z-10">
-                {/* Step 1 */}
-                <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
-                    <span className="text-white font-bold text-xl">1</span>
-                  </div>
-                  <div className="mt-6 text-center">
-                    <h3 className="text-xl font-bold text-white mb-3">Connect Your EHR</h3>
-                    <p className="text-gray-300">Integrate Astra AI with your existing electronic health record system with one-click setup</p>
-                  </div>
-                </div>
-                
-                {/* Step 2 */}
-                <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
-                    <span className="text-white font-bold text-xl">2</span>
-                  </div>
-                  <div className="mt-6 text-center">
-                    <h3 className="text-xl font-bold text-white mb-3">AI Processes Notes</h3>
-                    <p className="text-gray-300">Our AI automatically extracts ICD and CPT codes from your clinical notes with 95% accuracy</p>
-                  </div>
-                </div>
-                
-                {/* Step 3 */}
-                <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
-                    <span className="text-white font-bold text-xl">3</span>
-                  </div>
-                  <div className="mt-6 text-center">
-                    <h3 className="text-xl font-bold text-white mb-3">Claims Auto-Submit</h3>
-                    <p className="text-gray-300">Claims are automatically formatted, verified and submitted to insurance, with real-time status tracking</p>
-                  </div>
-                </div>
-              </div>
+      <div className="relative">
+        {/* Connection line for desktop view - Fixed horizontal line */}
+        <div className="hidden md:block absolute left-0 top-24 w-full h-1 bg-gradient-to-r from-purple-600/10 via-purple-600/80 to-purple-600/10" aria-hidden="true"></div>
+        
+        {/* Vertical lines connecting to each step */}
+        <div className="hidden md:block absolute left-1/6 top-0 h-24 w-1 bg-gradient-to-b from-transparent via-purple-600/80 to-purple-600/80" style={{left: "16.66%"}} aria-hidden="true"></div>
+        <div className="hidden md:block absolute left-1/2 top-0 h-24 w-1 bg-gradient-to-b from-transparent via-purple-600/80 to-purple-600/80" style={{transform: "translateX(-50%)"}} aria-hidden="true"></div>
+        <div className="hidden md:block absolute right-1/6 top-0 h-24 w-1 bg-gradient-to-b from-transparent via-purple-600/80 to-purple-600/80" style={{right: "16.66%"}} aria-hidden="true"></div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative z-10">
+          {/* Step 1 */}
+          <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
+              <span className="text-white font-bold text-xl">1</span>
+            </div>
+            <div className="mt-6 text-center">
+              <h3 className="text-xl font-bold text-white mb-3">Connect Your EHR</h3>
+              <p className="text-gray-300">Integrate Astra AI with your existing electronic health record system with one-click setup</p>
             </div>
           </div>
-        </section>
-      </AnimatedSection>
+          
+          {/* Step 2 */}
+          <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
+              <span className="text-white font-bold text-xl">2</span>
+            </div>
+            <div className="mt-6 text-center">
+              <h3 className="text-xl font-bold text-white mb-3">AI Processes Notes</h3>
+              <p className="text-gray-300">Our AI automatically extracts ICD and CPT codes from your clinical notes with 95% accuracy</p>
+            </div>
+          </div>
+          
+          {/* Step 3 */}
+          <div className="bg-[#0A0A20] p-6 rounded-xl border border-purple-900/50 relative hover:border-purple-500/70 transition duration-300 hover:shadow-[0_0_15px_rgba(124,58,237,0.12)]">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center border-4 border-[#080818] z-10 shadow-lg">
+              <span className="text-white font-bold text-xl">3</span>
+            </div>
+            <div className="mt-6 text-center">
+              <h3 className="text-xl font-bold text-white mb-3">Claims Auto-Submit</h3>
+              <p className="text-gray-300">Claims are automatically formatted, verified and submitted to insurance, with real-time status tracking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</AnimatedSection>
 
       {/* Process Visualization */}
       <AnimatedSection>
@@ -690,8 +668,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Image src="/astra-logo.png" alt="" width={24} height={24} className="mr-3" aria-hidden="true" />
-                <h3 className="font-bold text-lg">ASTRA</h3>
+                <Image src="/astra-logo.png" alt="" width={100} height={100} className="mr-3" aria-hidden="true" />
               </div>
               <p className="text-gray-300">
                 Transforming medical billing with AI-powered automation.

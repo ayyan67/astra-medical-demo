@@ -1,0 +1,21 @@
+{
+  "name": "Astra Medical - AI Medical Billing",
+  "short_name": "Astra Medical",
+  "description": "Increase revenue by 30% with AI medical billing. Reduce denials and file claims in under 10 minutes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/astra-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/astra-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

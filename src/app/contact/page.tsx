@@ -26,10 +26,9 @@ export default function ContactPage() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center group" aria-label="Astra Medical Home">
             <div className="mr-3 relative">
-              <Image src="/astra-logo.png" alt="" width={32} height={32} />
+              <Image src="/astra-logo.png" alt="" width={100} height={100} />
               <div className="absolute inset-0 bg-purple-500/20 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300" aria-hidden="true"></div>
             </div>
-            <span className="text-white font-bold text-xl tracking-tight group-hover:text-purple-200 transition-colors duration-300">ASTRA MEDICAL</span>
           </Link>
         </div>
         <div className="flex items-center space-x-4 lg:space-x-6">
@@ -105,8 +104,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Image src="/astra-logo.png" alt="" width={24} height={24} className="mr-3" aria-hidden="true" />
-                <h3 className="font-bold text-lg">ASTRA</h3>
+                <Image src="/astra-logo.png" alt="" width={100} height={100} className="mr-3" aria-hidden="true" />
               </div>
               <p className="text-gray-300">
                 Transforming medical billing with AI-powered automation.

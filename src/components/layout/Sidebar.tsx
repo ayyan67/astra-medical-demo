@@ -77,13 +77,12 @@ export function Sidebar({ collapsed = false, toggleCollapse }: {
       <div className="p-5 flex items-center gap-3 border-b border-purple-900/30">
         {!collapsed && (
           <>
-            <Image src="/astra-logo.png" alt="Astra Logo" width={32} height={32} />
-            <h1 className="text-xl font-bold text-white">Astra Medical</h1>
+            <Image src="/astra-logo.png" alt="Astra Logo" width={64} height={64} />
           </>
         )}
         {collapsed && (
           <div className="w-full flex justify-center">
-            <Image src="/astra-logo.png" alt="Astra Logo" width={32} height={32} />
+            <Image src="/astra-logo.png" alt="Astra Logo" width={64} height={64} />
           </div>
         )}
         {toggleCollapse && (
