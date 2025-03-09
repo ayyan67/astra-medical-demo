@@ -16,8 +16,10 @@ import {
   HelpCircle,
   ChevronRight,
   Bell,
+  AlertCircle,
 } from "lucide-react";
 
+// Add a route for Claims Review
 const routes = [
   {
     label: "Dashboard",
@@ -30,6 +32,13 @@ const routes = [
     icon: Upload,
     href: "/claims/submit",
     color: "text-purple-500",
+  },
+  {
+    label: "Claims Review",
+    icon: AlertCircle,
+    href: "/claims/review",
+    color: "text-amber-500",
+    badge: 8, // Number of claims needing attention
   },
   {
     label: "Claims History",
@@ -104,8 +113,8 @@ export function Sidebar({ collapsed = false, toggleCollapse }: {
               key={route.href}
               href={route.href}
               className={cn(
-                "group flex p-3 rounded-md transition-all duration-200",
-                collapsed ? "justify-center" : "items-center space-x-2",
+                "group flex p-3 rounded-md transition-all duration-200 relative",
+                collapsed ? "justify-center" : "items-center",
                 pathname === route.href
                   ? "bg-purple-900/30 text-purple-300 border-l-4 border-purple-500"
                   : "text-gray-300 hover:text-white hover:bg-purple-900/10"
@@ -113,7 +122,21 @@ export function Sidebar({ collapsed = false, toggleCollapse }: {
               title={collapsed ? route.label : undefined}
             >
               <route.icon className={cn("h-5 w-5 flex-shrink-0", route.color)} />
-              {!collapsed && <span>{route.label}</span>}
+              {!collapsed && (
+                <div className="flex items-center justify-between w-full">
+                  <span className="ml-2">{route.label}</span>
+                  {route.badge && (
+                    <span className="text-xs px-2 py-0.5 bg-amber-900/50 text-amber-300 rounded-full ml-2">
+                      {route.badge}
+                    </span>
+                  )}
+                </div>
+              )}
+              {collapsed && route.badge && (
+                <span className="absolute -top-1 -right-1 text-xs w-5 h-5 flex items-center justify-center bg-amber-900/50 text-amber-300 rounded-full">
+                  {route.badge}
+                </span>
+              )}
             </Link>
           ))}
         </div>
