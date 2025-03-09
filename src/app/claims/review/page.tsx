@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { 
   AlertCircle, 
   CheckCircle, 
@@ -36,12 +35,6 @@ import {
   TableHeader, 
   TableRow 
 } from '@/components/ui/table';
-
-// Use dynamic import for the dialog component to reduce initial load
-const DialogComponent = dynamic(() => import('@/components/ui/dialog'), {
-  ssr: false,
-  loading: () => <div className="w-full h-[200px] bg-[#0A0A20]/50 animate-pulse rounded-md"></div>
-});
 
 // Loading placeholder for the table
 const TableLoadingState = () => (
@@ -197,14 +190,6 @@ export default function ClaimsReviewPage() {
   const [visibleDialog, setVisibleDialog] = useState(false);
   const [selectedClaim, setSelectedClaim] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [dialogLoaded, setDialogLoaded] = useState(false);
-
-  // Load dialog component on demand
-  useEffect(() => {
-    if (visibleDialog && !dialogLoaded) {
-      setDialogLoaded(true);
-    }
-  }, [visibleDialog, dialogLoaded]);
 
   // Simulate loading state
   useEffect(() => {
@@ -647,9 +632,9 @@ export default function ClaimsReviewPage() {
         </TabsContent>
       </Tabs>
 
-      {/* The dialog implementation is simplified to avoid complex dynamic imports */}
-      {dialogLoaded && selectedClaim && (
-        <div className={`fixed inset-0 z-50 ${visibleDialog ? 'block' : 'hidden'}`}>
+      {/* Modal dialog for claim details */}
+      {selectedClaim && visibleDialog && (
+        <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setVisibleDialog(false)}></div>
           <div className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 border border-purple-900/30 bg-[#0A0A20] p-6 shadow-lg rounded-lg">
             <button 
