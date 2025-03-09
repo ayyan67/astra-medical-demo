@@ -641,7 +641,7 @@ export default function LandingPage() {
             Ready to reclaim 30% of your practice&#39;s revenue?
             </h2>
             <p className="text-gray-200 text-lg mb-8">
-            Join 2,000+ healthcare providers who&#39;ve increased claim approvals by 85% and saved 15 hours per week on administrative tasks.
+            Join healthcare providers who&#39;ve increased claim approvals by 85% and saved 15 hours per week on administrative tasks.
             </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3">
                 <Link href="/sign-up">
